@@ -1,33 +1,32 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using OeeCalculation.TrackableDatabase.Model;
-using Production.Abstract.Model;
+
 namespace OeeCalculation.TrackableDatabase.Serialization
 {
-    public class PUTimeEndSerializer
+    public class DbListSerializer<T> where T : class, ITrackable
     {
-        public static List<PUTimeEndTrackable> From(byte[] data, int startPos, int length)
+        public static List<T> From(byte[] data, int startPos, out int endPos)
         {
-            var result = new List<PUTimeEndTrackable>();
+            int currentPosition = startPos;
+            int length = AxxosBitConverter.ToInt32(data, currentPosition);
+            currentPosition = currentPosition + 4;
+            var result = new List<T>();
+
             for (var i = 0; i < length; i++)
             {
-                result.Add(GetPUTimeEnd(startPos + i * 29, data));
+                var entity = GetEntity(currentPosition, data, out currentPosition);
+                currentPosition += entity.Size;
+                result.Add(entity);
             }
+            endPos = currentPosition;
             return result;
         }
 
-        private static PUTimeEndTrackable GetPUTimeEnd(int pos, byte[] data)
+        private static T GetEntity(int pos, byte[] data, out int endPos)
         {
-            return new PUTimeEndTrackable(
-                 track: new Track(
-                 date: AxxosBitConverter.ToDateTime(data,pos+0),
-                 type: (TrackingType)AxxosBitConverter.ToChar(data, pos + 8)
-                 ),
-            amount: AxxosBitConverter.ToSingle(data, pos + 9),
-             orderId: AxxosBitConverter.ToInt32(data, pos + 17),
-             putime: AxxosBitConverter.ToDateTime(data, pos + 21)
-                );
+            endPos = pos + 1;
+            return (T)Activator.CreateInstance(typeof(T), new NullMask(data[pos]), data, pos + 1);
         }
     }
 }

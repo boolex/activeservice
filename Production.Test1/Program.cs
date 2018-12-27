@@ -33,7 +33,7 @@ namespace Production.Test1
     {
         static void Main(string[] args)
         {
-            //var cs = @"Server=axkhm01\sql2008r2;Initial Catalog=OEECoreTest;User Id=sa;Password=0axxos0";
+            var cs = @"Server=axkhm01\sql2008r2;Initial Catalog=OEECoreTest;User Id=sa;Password=0axxos0";
             //var db = new AxxosDatabase(
             //    new DbRequest(connectionString: cs),
             //    DateTime.Parse("2018-01-01")
@@ -42,7 +42,11 @@ namespace Production.Test1
             //db.Listen();
             //Console.ReadLine();
 
+            var db = new AxxosTrackableDatabase(cs);
+            db.Track();
 
+           // Thread.Sleep(10000);
+            return;
             DateTime now = DateTime.Now;
             var shiftHistory = new List<Shift>();
             for (var i = 0; i < 1000; i++)
@@ -121,7 +125,7 @@ namespace Production.Test1
             for (var i = 0; i < 1000; i++)
             {
                 osProduction.EndUnit(new PUTimeEnd(1, 1, DateTime.Now));
-                
+
                 Console.Clear();
                 Console.WriteLine("Active Shift");
                 Console.WriteLine(FormattedMessage(productionPeriodActiveShift.GetStatistics()));

@@ -32,7 +32,9 @@ namespace Production.Abstract.Model
         {
             this.operatorStationId = operatorStationId;
             this.id = id;
-            this.batches = batches.Select(x => new OrderBatch(operatorStationId, x));
+            this.startTime = startTime;
+            this.endTime = endTime;
+            this.batches = batches;
             this.puEnd = puEnd;
             this.puStart = puStart;
             this.puScrapped = puScrapped;

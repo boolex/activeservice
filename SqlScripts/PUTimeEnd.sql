@@ -39,8 +39,13 @@ begin
 end
 
 
+select convert(binary(8), cast(null as float(24))) 
 set statistics time on
 go
+
+declare @basedate datetime
+set @basedate = '2000-01-01'
+
 declare @vb varbinary(max)
 set @vb = 0x
 
@@ -48,11 +53,18 @@ set @vb = @vb +  convert(binary(4), (select count(1) from [dbo].[PUTimeEnd_Track
 
 select
 top(200)
-	@vb = @vb + convert(binary(8), TrackingDate) + convert(binary(1), TrackingType) + convert(binary(8), Amount) + convert(binary(4), order_id) + convert(binary(8), PUTime)
+	@vb = @vb 
+		+ convert(binary(4), datediff(day, @basedate, TrackingDate))  
+		+ convert(binary(4), datediff(ms, CONVERT(date, TrackingDate), TrackingDate)) 
+		+ convert(binary(1), TrackingType) 
+		+ convert(binary(8), convert(float(24), Amount)) 
+		+ convert(binary(4), order_id) 
+		+ convert(binary(4), datediff(day, @basedate, PUTime))  
+		+ convert(binary(4), datediff(ms, CONVERT(date, PUTime), PUTime)) 
 from 
 	[dbo].[PUTimeEnd_Tracking]
 
-
+	
 select DATALENGTH(@vb)
 select @vb
 set statistics time off

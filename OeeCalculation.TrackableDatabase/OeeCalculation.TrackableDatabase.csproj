@@ -58,7 +58,13 @@
     <Compile Include="AxxosBitConverter.cs" />
     <Compile Include="AxxosTrackableDatabase.cs" />
     <Compile Include="DatabaseChangeSet.cs" />
+    <Compile Include="ITrackable.cs" />
+    <Compile Include="Model\BatchTrackable.cs" />
+    <Compile Include="Model\CalendarHistoryTrackable.cs" />
+    <Compile Include="Model\NullMask.cs" />
+    <Compile Include="Model\OrderTrackable.cs" />
     <Compile Include="Model\PUTimeEndTrackable.cs" />
+    <Compile Include="Model\DowntimeOccasionTrackable.cs" />
     <Compile Include="Model\Track.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serialization\PUTimeEndSerializer.cs" />

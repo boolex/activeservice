@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using OeeCalculation.TrackableDatabase.Model;
+
 namespace OeeCalculation.TrackableDatabase
 {
     public class AxxosBitConverter
@@ -23,11 +25,11 @@ namespace OeeCalculation.TrackableDatabase
             return BitConverter.ToInt64(data, offset);
         }
 
-        public static Char ToChar(byte[] data, int offset)
+        public static Byte ToByte(byte[] data, int offset)
         {
             //if (BitConverter.IsLittleEndian)
             //    return BitConverter.ToChar(BitConverter.IsLittleEndian ? data.Skip(offset).Take(1).Reverse().ToArray() : data, 0);
-            return BitConverter.ToChar(data, offset);
+            return data[offset];
         }
 
         public static Single ToSingle(byte[] data, int offset)
@@ -39,7 +41,23 @@ namespace OeeCalculation.TrackableDatabase
 
         public static DateTime ToDateTime(byte[] data, int offset)
         {
-            return DateTime.Parse("1900-01-01").AddDays(ToInt32(data, offset)).AddTicks(100 * ToInt32(data, offset + 4));
+            return DateTime.Parse("2000-01-01").AddDays(ToInt32(data, offset)).AddMilliseconds(ToInt32(data, offset + 4));
+        }
+        public static DateTime? ToDateTimeNullable(byte[] data, int offset, INullMask mask, int nullablePosition)
+        {
+            if (mask[nullablePosition])
+            {
+                return null;
+            }
+            return ToDateTime(data, offset);
+        }
+        public static Int32? ToInt32Nullable(byte[] data, int offset, INullMask mask, int nullablePosition)
+        {
+            if (mask[nullablePosition])
+            {
+                return null;
+            }
+            return ToInt32(data, offset);
         }
     }
 }
