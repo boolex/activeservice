@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0257AFF5-F9E6-46C3-958C-FFAFA1977FAA}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Production.Test1</RootNamespace>
+    <AssemblyName>Production.Test1</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SqlClient, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.3.0\lib\net451\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TableDependency.SqlClient, Version=8.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SqlTableDependency.8.5.2\lib\net451\TableDependency.SqlClient.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Oee\Calc\Storage\DynamicIntersectionStorage.cs" />
+    <Compile Include="Oee\Calc\Storage\DynamicStorage.cs" />
+    <Compile Include="Oee\Calc\Storage\Intersection.cs" />
+    <Compile Include="Oee\Calc\Storage\Intersections.cs" />
+    <Compile Include="Oee\Calc\OrderBatchStatisticsCalculator.cs" />
+    <Compile Include="Oee\Calc\Storage\ProducedUnitStorage.cs" />
+    <Compile Include="Oee\ProductionPeriod\ActiveOrderProductionPeriod.cs" />
+    <Compile Include="Oee\ProductionPeriod\ActiveShiftProductionPeriod.cs" />
+    <Compile Include="Oee\ProductionPeriod\SlidingProductionPeriod.cs" />
+    <Compile Include="Oee\Statistics\OrderBatchProductionBaseAttributes.cs" />
+    <Compile Include="Oee\Calc\OrderStatisticsCalculator.cs" />
+    <Compile Include="Oee\Calc\OsProductionCalculator.cs" />
+    <Compile Include="Oee\Calc\PpProductionPeriodCalculator.cs" />
+    <Compile Include="Oee\Calc\Storage\ProductionDowntimeStorage.cs" />
+    <Compile Include="Oee\Calc\Storage\ProductionOrderBatchStorage.cs" />
+    <Compile Include="Oee\Calc\Storage\ProductionOrderDowntime.cs" />
+    <Compile Include="Oee\Calc\Storage\ShiftStorage.cs" />
+    <Compile Include="Oee\Model\ProductionDowntime.cs" />
+    <Compile Include="Oee\Production\OperatorStationProduction.cs" />
+    <Compile Include="Oee\Production\OrderProduction.cs" />
+    <Compile Include="Oee\Production\ProdplaceProduction.cs" />
+    <Compile Include="Oee\Statistics\AmountStatistics.cs" />
+    <Compile Include="Oee\Statistics\LossStatistics.cs" />
+    <Compile Include="Oee\Statistics\OrderProductionTimeMetrics.cs" />
+    <Compile Include="Oee\Statistics\OsProductionStatistics.cs" />
+    <Compile Include="Oee\Statistics\OverallAmountStatistics.cs" />
+    <Compile Include="Oee\Statistics\ProductionBaseAttributes.cs" />
+    <Compile Include="Oee\Statistics\ProductionStatistics.cs" />
+    <Compile Include="Oee\Statistics\ProductionTime.cs" />
+    <Compile Include="Oee\Statistics\ProductionTimeMetrics.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OeeCalculation.Abstract\Production.Abstract.csproj">
+      <Project>{298366ec-7e91-455c-8e4c-7cc4ebfae19a}</Project>
+      <Name>Production.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OeeCalculation.DatabaseContext\OeeCalculation.DatabaseContext.csproj">
+      <Project>{8c32e96e-0df5-4b0a-9dae-1309daba208b}</Project>
+      <Name>OeeCalculation.DatabaseContext</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OeeCalculation.Test.TrackableDatabase\OeeCalculation.Test.TrackableDatabase.csproj">
+      <Project>{deb8a41d-cd72-44e0-be8e-b6647604da82}</Project>
+      <Name>OeeCalculation.Test.TrackableDatabase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OeeCalculation.TrackableDatabaseContext\OeeCalculation.TrackableDatabaseContext.csproj">
+      <Project>{32b54e9c-e612-4ae0-b539-ca477dfa191c}</Project>
+      <Name>OeeCalculation.TrackableDatabaseContext</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OeeCalculation.TrackableDatabase\OeeCalculation.TrackableDatabase.csproj">
+      <Project>{3874554b-1123-4c74-8826-919ace2bd5c5}</Project>
+      <Name>OeeCalculation.TrackableDatabase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

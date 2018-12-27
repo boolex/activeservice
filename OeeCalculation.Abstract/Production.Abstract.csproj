@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{298366EC-7E91-455C-8E4C-7CC4EBFAE19A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Production.Abstract</RootNamespace>
+    <AssemblyName>Production.Abstract</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Computing\DateRange.cs" />
+    <Compile Include="Computing\IDynamicStorageT.cs" />
+    <Compile Include="Computing\ILossStatistics.cs" />
+    <Compile Include="Computing\IProductionMetrics.cs" />
+    <Compile Include="Computing\IProductionPeriod.cs" />
+    <Compile Include="Computing\IProductionStatistics.cs" />
+    <Compile Include="Computing\IProductionTime.cs" />
+    <Compile Include="Computing\IStatisticsCalculator.cs" />
+    <Compile Include="ICompletedProductionPeriod.cs" />
+    <Compile Include="IDatabaseContext.cs" />
+    <Compile Include="IListener.cs" />
+    <Compile Include="IProductionAttributeSource.cs" />
+    <Compile Include="IStartedProductionPeriod.cs" />
+    <Compile Include="ITrackableDatabase.cs" />
+    <Compile Include="ITrackableDatabaseContext.cs" />
+    <Compile Include="Model\CalendarHistory.cs" />
+    <Compile Include="Model\DowntimeOccasion.cs" />
+    <Compile Include="Model\IOperatorStationEntity.cs" />
+    <Compile Include="Model\IProdPlaceEntity.cs" />
+    <Compile Include="Model\OperatorStation.cs" />
+    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\OrderBatch.cs" />
+    <Compile Include="Model\ProdPlace.cs" />
+    <Compile Include="Model\PUTimeEnd.cs" />
+    <Compile Include="Model\PUTimeScrapped.cs" />
+    <Compile Include="Model\PUTimeStart.cs" />
+    <Compile Include="Model\Shift.cs" />
+    <Compile Include="PeriodDuration.cs" />
+    <Compile Include="ProductionAttribute.cs" />
+    <Compile Include="ProductionAttributeOption.cs" />
+    <Compile Include="ProductionTimeStatisticsFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
