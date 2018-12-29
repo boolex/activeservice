@@ -55,8 +55,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AxxosBitConverter.cs" />
-    <Compile Include="AxxosTrackableDatabase.cs" />
+    <Compile Include="SoxxaBitConverter.cs" />
+    <Compile Include="SoxxaTrackableDatabase.cs" />
     <Compile Include="DatabaseChangeSet.cs" />
     <Compile Include="ITrackable.cs" />
     <Compile Include="Model\BatchTrackable.cs" />

@@ -2,10 +2,10 @@
 using Production.Abstract;
 namespace OeeCalculation.TrackableDatabase
 {
-    public class AxxosTrackableDatabase : ITrackableDatabase
+    public class SoxxaTrackableDatabase : ITrackableDatabase
     {
         private readonly string connectionString;
-        public AxxosTrackableDatabase(
+        public SoxxaTrackableDatabase(
             string connectionString
             )
         {

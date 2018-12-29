@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AxxosDatabase.cs" />
+    <Compile Include="SoxxaDatabase.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DbRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

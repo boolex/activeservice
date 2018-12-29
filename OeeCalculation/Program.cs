@@ -19,7 +19,7 @@ namespace Production
       
         static void Main(string[] args)
         {
-              string _con = @"Server=axkhm01\sql2008r2;Initial Catalog=OEECoreTest;User Id=sa;Password=0axxos0";
+              string _con = @"Server=axkhm01\sql2008r2;Initial Catalog=OEECoreTest;User Id=sa;Password=0Soxxa0";
              var mapper = new ModelToTableMapper<DowntimeOccasion>();
             mapper.AddMapping(c => c.DTOccasion_Id, "DTOccasion_Id");
             
@@ -38,7 +38,7 @@ namespace Production
 
                 dep.Stop();
             }
-            //string connectionString = @"Server=axkhm01\sql2008r2;Initial Catalog=OEECoreTest;User Id=sa;Password=0axxos0";
+            //string connectionString = @"Server=axkhm01\sql2008r2;Initial Catalog=OEECoreTest;User Id=sa;Password=0Soxxa0";
             //string format = "yyyy-MM-dd HH:mm:ss";
             //for (var i = 1; i <= 6; i++)
             //{

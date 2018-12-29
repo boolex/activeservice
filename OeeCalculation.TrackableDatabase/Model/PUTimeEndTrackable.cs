@@ -13,9 +13,9 @@ namespace OeeCalculation.TrackableDatabase.Model
         public PUTimeEndTrackable(INullMask mask, byte[] data, int pos) : this(
             mask: NullMask.Empty,
             track: new Track(data, pos),
-            amount: AxxosBitConverter.ToSingle(data, pos + 9),
-            orderId: AxxosBitConverter.ToInt32(data, pos + 17),
-            putime: AxxosBitConverter.ToDateTime(data, pos + 21))
+            amount: SoxxaBitConverter.ToSingle(data, pos + 9),
+            orderId: SoxxaBitConverter.ToInt32(data, pos + 17),
+            putime: SoxxaBitConverter.ToDateTime(data, pos + 21))
         { }
 
         public PUTimeEndTrackable(

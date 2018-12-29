@@ -29,12 +29,12 @@ namespace OeeCalculation.TrackableDatabase.Model
         public CalendarHistoryTrackable(INullMask mask, byte[] data, int pos) : this(
             mask: mask,
             track: new Track(data, pos),
-            operatorStationId: AxxosBitConverter.ToInt32(data, pos + 9),
-            calendarHistoryId: AxxosBitConverter.ToInt32(data, pos + 13),
-            changeType: AxxosBitConverter.ToInt32(data, pos + 17),
-            calendar: AxxosBitConverter.ToInt32(data, pos + 21),
-            periodStartTime: AxxosBitConverter.ToDateTime(data, pos + 25),
-            changeDate: AxxosBitConverter.ToDateTime(data, pos + 33)
+            operatorStationId: SoxxaBitConverter.ToInt32(data, pos + 9),
+            calendarHistoryId: SoxxaBitConverter.ToInt32(data, pos + 13),
+            changeType: SoxxaBitConverter.ToInt32(data, pos + 17),
+            calendar: SoxxaBitConverter.ToInt32(data, pos + 21),
+            periodStartTime: SoxxaBitConverter.ToDateTime(data, pos + 25),
+            changeDate: SoxxaBitConverter.ToDateTime(data, pos + 33)
             )
         { }
         public INullMask Nulls

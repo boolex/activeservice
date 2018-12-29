@@ -23,11 +23,11 @@ namespace OeeCalculation.TrackableDatabase.Model
         public DowntimeOccasionTrackable(INullMask mask, byte[] data, int pos) : this(
             mask: mask,
             track: new Track(data, pos),
-            id: AxxosBitConverter.ToInt32(data, pos + 9),
-            prodPlaceId: AxxosBitConverter.ToInt32(data, pos + 13),
-            start: AxxosBitConverter.ToDateTime(data, pos + 17),
-            end: AxxosBitConverter.ToDateTimeNullable(data, pos + 25, mask, 0),
-            lossType: AxxosBitConverter.ToInt32Nullable(data, pos + 25 + (mask[0] ? 0 : 8), mask, 1))
+            id: SoxxaBitConverter.ToInt32(data, pos + 9),
+            prodPlaceId: SoxxaBitConverter.ToInt32(data, pos + 13),
+            start: SoxxaBitConverter.ToDateTime(data, pos + 17),
+            end: SoxxaBitConverter.ToDateTimeNullable(data, pos + 25, mask, 0),
+            lossType: SoxxaBitConverter.ToInt32Nullable(data, pos + 25 + (mask[0] ? 0 : 8), mask, 1))
         {
         }
         public Track Track

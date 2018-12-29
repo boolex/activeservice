@@ -9,7 +9,7 @@ namespace OeeCalculation.TrackableDatabase.Serialization
         public static List<T> From(byte[] data, int startPos, out int endPos)
         {
             int currentPosition = startPos;
-            int length = AxxosBitConverter.ToInt32(data, currentPosition);
+            int length = SoxxaBitConverter.ToInt32(data, currentPosition);
             currentPosition = currentPosition + 4;
             var result = new List<T>();
 

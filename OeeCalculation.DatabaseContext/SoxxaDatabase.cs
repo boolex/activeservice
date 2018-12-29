@@ -9,12 +9,12 @@ using Production.Abstract.Model;
 using Production.Abstract;
 namespace OeeCalculation.DatabaseContext
 {
-    public class AxxosDatabase : IDatabaseContext
+    public class SoxxaDatabase : IDatabaseContext
     {
         //private readonly SqlServerListener listener;
         private readonly DateTime now;
         private readonly IRequest request;
-        public AxxosDatabase(IRequest request, DateTime now/*, SqlServerListener listener*/)
+        public SoxxaDatabase(IRequest request, DateTime now/*, SqlServerListener listener*/)
         {
             this.now = now;
             this.request = request;

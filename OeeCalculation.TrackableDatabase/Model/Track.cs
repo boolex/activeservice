@@ -18,8 +18,8 @@ namespace OeeCalculation.TrackableDatabase.Model
             this.date = date;
         }
         public Track(byte[] data, int offset) :
-            this(date: AxxosBitConverter.ToDateTime(data, offset + 0),
-                 type: (TrackingType)AxxosBitConverter.ToByte(data, offset + 8))
+            this(date: SoxxaBitConverter.ToDateTime(data, offset + 0),
+                 type: (TrackingType)SoxxaBitConverter.ToByte(data, offset + 8))
         {
         }
         public TrackingType Type { get { return type; } }

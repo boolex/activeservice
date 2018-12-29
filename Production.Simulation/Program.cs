@@ -15,7 +15,7 @@ namespace Production.Simulation
             var p = new ProductionHistory(new ProductionSetting(), start, end);
             var timeSpeedRatio = 1;
 
-            var sqlComm = new SqlCreateCommand("Server=axkhm01\\sql2008r2;Initial Catalog=OEECoreTest;User ID=sa;Password=0axxos0");
+            var sqlComm = new SqlCreateCommand("Server=axkhm01\\sql2008r2;Initial Catalog=OEECoreTest;User ID=sa;Password=0Soxxa0");
             var history = p.History.ToList();
             var historyEnum = history.GetEnumerator();
             var containsEvents = historyEnum.MoveNext();

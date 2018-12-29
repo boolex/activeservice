@@ -21,10 +21,10 @@ namespace OeeCalculation.TrackableDatabase.Model
         public BatchTrackable(INullMask mask, byte[] data, int pos): this(
             mask: mask,
             track: new Track(data, pos),
-            id: AxxosBitConverter.ToInt32(data, pos + 9),
-            orderId: AxxosBitConverter.ToInt32(data, pos + 13),
-            start: AxxosBitConverter.ToDateTime(data, pos + 17),
-            end: AxxosBitConverter.ToDateTimeNullable(data, pos + 25, mask, 0))
+            id: SoxxaBitConverter.ToInt32(data, pos + 9),
+            orderId: SoxxaBitConverter.ToInt32(data, pos + 13),
+            start: SoxxaBitConverter.ToDateTime(data, pos + 17),
+            end: SoxxaBitConverter.ToDateTimeNullable(data, pos + 25, mask, 0))
         { }
         public Track Track
         {

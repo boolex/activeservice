@@ -33,8 +33,8 @@ namespace Production.Test1
     {
         static void Main(string[] args)
         {
-            var cs = @"Server=axkhm01\sql2008r2;Initial Catalog=OEECoreTest;User Id=sa;Password=0axxos0";
-            //var db = new AxxosDatabase(
+            var cs = @"Server=axkhm01\sql2008r2;Initial Catalog=OEECoreTest;User Id=sa;Password=0Soxxa0";
+            //var db = new SoxxaDatabase(
             //    new DbRequest(connectionString: cs),
             //    DateTime.Parse("2018-01-01")
             //   /* ,new SqlServerListener(cs)*/);
@@ -42,7 +42,7 @@ namespace Production.Test1
             //db.Listen();
             //Console.ReadLine();
 
-            var db = new AxxosTrackableDatabase(cs);
+            var db = new SoxxaTrackableDatabase(cs);
             db.Track();
 
            // Thread.Sleep(10000);

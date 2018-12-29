@@ -4,7 +4,7 @@ using OeeCalculation.TrackableDatabase.Model;
 
 namespace OeeCalculation.TrackableDatabase
 {
-    public class AxxosBitConverter
+    public class SoxxaBitConverter
     {
         public static Int16 ToInt16(byte[] data, int offset)
         {
