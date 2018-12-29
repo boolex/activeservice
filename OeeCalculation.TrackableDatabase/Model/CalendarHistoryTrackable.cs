@@ -1,8 +1,9 @@
 ﻿using System;
+using Production.Abstract;
 using Production.Abstract.Model;
 namespace OeeCalculation.TrackableDatabase.Model
 {
-    public class CalendarHistoryTrackable : CalendarHistory, ITrackable
+    public class CalendarHistoryTrackable : CalendarHistory, ITrackable, IDeserializableDbRecord
     {
         private readonly Track track;
         private readonly INullMask mask;
@@ -28,7 +29,7 @@ namespace OeeCalculation.TrackableDatabase.Model
         }
         public CalendarHistoryTrackable(INullMask mask, byte[] data, int pos) : this(
             mask: mask,
-            track: new Track(data, pos),
+            track: new TrackBinary(data, pos),
             operatorStationId: SoxxaBitConverter.ToInt32(data, pos + 9),
             calendarHistoryId: SoxxaBitConverter.ToInt32(data, pos + 13),
             changeType: SoxxaBitConverter.ToInt32(data, pos + 17),

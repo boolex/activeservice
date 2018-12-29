@@ -1,10 +1,10 @@
 ﻿using OeeCalculation.TrackableDatabase.Model;
 namespace OeeCalculation.TrackableDatabase
 {
-    public interface ITrackable
+  
+    public interface IDeserializableDbRecord
     {
-        INullMask Nulls { get; }
-        Track Track { get; }  
         int Size { get; }
+        INullMask Nulls { get; }
     }
 }

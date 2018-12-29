@@ -1,6 +1,5 @@
 ﻿using System;
-
-namespace OeeCalculation.TrackableDatabase.Model
+namespace Production.Abstract.Model
 {
     public enum TrackingType
     {
@@ -17,11 +16,7 @@ namespace OeeCalculation.TrackableDatabase.Model
             this.type = type;
             this.date = date;
         }
-        public Track(byte[] data, int offset) :
-            this(date: SoxxaBitConverter.ToDateTime(data, offset + 0),
-                 type: (TrackingType)SoxxaBitConverter.ToByte(data, offset + 8))
-        {
-        }
+       
         public TrackingType Type { get { return type; } }
         public DateTime Date { get { return date; } }
     }

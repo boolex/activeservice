@@ -4,7 +4,7 @@ using OeeCalculation.TrackableDatabase.Model;
 
 namespace OeeCalculation.TrackableDatabase.Serialization
 {
-    public class DbListSerializer<T> where T : class, ITrackable
+    public class DbListSerializer<T> where T : class, IDeserializableDbRecord
     {
         public static List<T> From(byte[] data, int startPos, out int endPos)
         {

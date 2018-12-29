@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Production.Abstract;
 using Production.Abstract.Model;
 namespace OeeCalculation.TrackableDatabase.Model
 {
-    public class OrderTrackable : Order, ITrackable
+    public class OrderTrackable : Order, ITrackable, IDeserializableDbRecord
     {
         private readonly Track track;
         private readonly INullMask mask;
@@ -40,7 +41,7 @@ namespace OeeCalculation.TrackableDatabase.Model
         }
         public OrderTrackable(INullMask mask, byte[] data, int pos) : this(
             mask: mask,
-            track: new Track(data, pos),
+            track: new TrackBinary(data, pos),
             operatorStationId: SoxxaBitConverter.ToInt32(data, pos + 9),
             id: SoxxaBitConverter.ToInt32(data, pos + 13),
             startTime: SoxxaBitConverter.ToDateTime(data, pos + 17),

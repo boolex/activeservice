@@ -1,8 +1,9 @@
 ﻿using System;
+using Production.Abstract;
 using Production.Abstract.Model;
 namespace OeeCalculation.TrackableDatabase.Model
 {
-    public class DowntimeOccasionTrackable : DowntimeOccasion, ITrackable
+    public class DowntimeOccasionTrackable : DowntimeOccasion, ITrackable, IDeserializableDbRecord
     {
         private readonly Track track;
         private readonly INullMask mask;
@@ -22,7 +23,7 @@ namespace OeeCalculation.TrackableDatabase.Model
         }
         public DowntimeOccasionTrackable(INullMask mask, byte[] data, int pos) : this(
             mask: mask,
-            track: new Track(data, pos),
+            track: new TrackBinary(data, pos),
             id: SoxxaBitConverter.ToInt32(data, pos + 9),
             prodPlaceId: SoxxaBitConverter.ToInt32(data, pos + 13),
             start: SoxxaBitConverter.ToDateTime(data, pos + 17),

@@ -55,6 +55,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseRecordSet.cs" />
+    <Compile Include="Model\TrackBinary.cs" />
     <Compile Include="SoxxaBitConverter.cs" />
     <Compile Include="SoxxaTrackableDatabase.cs" />
     <Compile Include="DatabaseChangeSet.cs" />
@@ -65,7 +67,6 @@
     <Compile Include="Model\OrderTrackable.cs" />
     <Compile Include="Model\PUTimeEndTrackable.cs" />
     <Compile Include="Model\DowntimeOccasionTrackable.cs" />
-    <Compile Include="Model\Track.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serialization\PUTimeEndSerializer.cs" />
     <Compile Include="SqlServerListener.cs" />

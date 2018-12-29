@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeeCalculation.Test.Trackab
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Production.Simulation", "Production.Simulation\Production.Simulation.csproj", "{9842A979-3FB9-40B3-A75E-DF43A3C60F98}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeeCalculation.DataMapper", "OeeCalculation.DataMapper\OeeCalculation.DataMapper.csproj", "{9440DC8A-F1DD-40B5-BE03-539F217C0467}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeeCalculation.DataMapper.Test", "OeeCalculation.DataMapper.Test\OeeCalculation.DataMapper.Test.csproj", "{5B79072C-7449-48BF-97F3-0058395BC481}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +65,14 @@ Global
 		{9842A979-3FB9-40B3-A75E-DF43A3C60F98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9842A979-3FB9-40B3-A75E-DF43A3C60F98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9842A979-3FB9-40B3-A75E-DF43A3C60F98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9440DC8A-F1DD-40B5-BE03-539F217C0467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9440DC8A-F1DD-40B5-BE03-539F217C0467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9440DC8A-F1DD-40B5-BE03-539F217C0467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9440DC8A-F1DD-40B5-BE03-539F217C0467}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B79072C-7449-48BF-97F3-0058395BC481}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B79072C-7449-48BF-97F3-0058395BC481}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B79072C-7449-48BF-97F3-0058395BC481}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B79072C-7449-48BF-97F3-0058395BC481}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

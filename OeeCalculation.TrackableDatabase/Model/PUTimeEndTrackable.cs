@@ -1,8 +1,9 @@
 ﻿using System;
+using Production.Abstract;
 using Production.Abstract.Model;
 namespace OeeCalculation.TrackableDatabase.Model
 {
-    public class PUTimeEndTrackable : PUTimeEnd, ITrackable
+    public class PUTimeEndTrackable : PUTimeEnd, ITrackable, IDeserializableDbRecord
     {
         private readonly Track track;
         private readonly INullMask mask;
@@ -12,7 +13,7 @@ namespace OeeCalculation.TrackableDatabase.Model
         }
         public PUTimeEndTrackable(INullMask mask, byte[] data, int pos) : this(
             mask: NullMask.Empty,
-            track: new Track(data, pos),
+            track: new TrackBinary(data, pos),
             amount: SoxxaBitConverter.ToSingle(data, pos + 9),
             orderId: SoxxaBitConverter.ToInt32(data, pos + 17),
             putime: SoxxaBitConverter.ToDateTime(data, pos + 21))

@@ -50,11 +50,16 @@
     <Compile Include="Computing\IProductionStatistics.cs" />
     <Compile Include="Computing\IProductionTime.cs" />
     <Compile Include="Computing\IStatisticsCalculator.cs" />
+    <Compile Include="IChangeSet.cs" />
     <Compile Include="ICompletedProductionPeriod.cs" />
     <Compile Include="IDatabaseContext.cs" />
+    <Compile Include="IDatabaseRecordSet.cs" />
+    <Compile Include="IDataMapper.cs" />
     <Compile Include="IListener.cs" />
     <Compile Include="IProductionAttributeSource.cs" />
+    <Compile Include="IProductionEvent.cs" />
     <Compile Include="IStartedProductionPeriod.cs" />
+    <Compile Include="ITrackable.cs" />
     <Compile Include="ITrackableDatabase.cs" />
     <Compile Include="ITrackableDatabaseContext.cs" />
     <Compile Include="Model\CalendarHistory.cs" />
@@ -69,9 +74,12 @@
     <Compile Include="Model\PUTimeScrapped.cs" />
     <Compile Include="Model\PUTimeStart.cs" />
     <Compile Include="Model\Shift.cs" />
+    <Compile Include="Model\Track.cs" />
     <Compile Include="PeriodDuration.cs" />
     <Compile Include="ProductionAttribute.cs" />
     <Compile Include="ProductionAttributeOption.cs" />
+    <Compile Include="ProductionEvent\ShiftEnded.cs" />
+    <Compile Include="ProductionEvent\ShiftStarted.cs" />
     <Compile Include="ProductionTimeStatisticsFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
