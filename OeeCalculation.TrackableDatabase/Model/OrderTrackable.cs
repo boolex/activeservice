@@ -22,7 +22,8 @@ namespace OeeCalculation.TrackableDatabase.Model
             IEnumerable<PUTimeScrapped> puScrapped,
             float amountPerUnit,
             float amountPerPulseStart,
-            float goalCycleTime
+            float goalCycleTime,
+            bool active
             ) : base(
                    operatorStationId,
              id,
@@ -34,7 +35,8 @@ namespace OeeCalculation.TrackableDatabase.Model
              puScrapped,
              amountPerUnit,
              amountPerPulseStart,
-             goalCycleTime)
+             goalCycleTime,
+             active)
         {
             this.track = track;
             this.mask = mask;
@@ -52,10 +54,13 @@ namespace OeeCalculation.TrackableDatabase.Model
             batches: null,
             puEnd: null,
             puStart: null,
-            puScrapped: null)
+            puScrapped: null,
+            active: false)
         { }
         public Track Track { get { return track; } }
         public int Size { get { return 49 + (mask[0] ? 0 : 8); } }
         public INullMask Nulls { get { return mask; } }
+
+        public IMachine Machine { get { return new Machine(OperatorStation_Id); } }
     }
 }

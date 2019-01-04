@@ -50,5 +50,6 @@ namespace OeeCalculation.TrackableDatabase.Model
         {
             get { return 41; }
         }
+        public IMachine Machine { get { return new Machine(OperatorStation_Id); } }
     }
 }

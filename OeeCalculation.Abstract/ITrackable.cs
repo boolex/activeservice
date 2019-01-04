@@ -4,5 +4,6 @@ namespace Production.Abstract
     public interface ITrackable
     {
         Track Track { get; }
+        IMachine Machine { get; }
     }
 }

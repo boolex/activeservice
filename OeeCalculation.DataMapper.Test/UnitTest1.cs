@@ -5,6 +5,10 @@ using OeeCalculation.TrackableDatabase.Model;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OeeCalculation.TrackableDatabase;
+using OeeCalculation.Computing.Production;
+using OeeCalculation.Computing.ProductionEvents;
+using Production.Abstract;
+
 namespace OeeCalculation.DataMapper.Test
 {
     [TestClass]
@@ -54,8 +58,99 @@ namespace OeeCalculation.DataMapper.Test
 
                 }
             );
-            var mapper = new DataMapper(changeSet);
+            var os = new TestOsProduction(1);
+            os.AddProdplace(new TestPpProduction(1, os, recentDowntime: null));
+            var mapper = new DataMapper(
+                changeSet: changeSet,
+                production: os
+            );
             Assert.IsTrue(mapper.Events.Count() > 0);
+        }
+
+        private class TestOsProduction : IOsProduction
+        {
+            private int id;
+            private readonly List<TestPpProduction> prodplaces;
+            private readonly CalendarHistory calendar;
+            private readonly Order order;
+            private readonly OrderBatch batch;
+            public TestOsProduction(
+                int id,
+                CalendarHistory calendar = null,
+                Order order = null,
+                OrderBatch batch = null)
+            {
+                this.id = id;
+                this.prodplaces = new List<TestPpProduction>();
+                this.calendar = calendar;
+                this.order = order;
+                this.batch = batch;
+            }
+            public void AddProdplace(TestPpProduction prodplace)
+            {
+                prodplaces.Add(prodplace);
+            }
+            public IMachine Machine { get { return new Machine(operatorStationId: id); } }
+            public IEnumerable<IProdplaceProduction> Prodplaces
+            {
+                get { return prodplaces; }
+            }
+            public IProductionHistory Recent
+            {
+                get
+                {
+                    return new ProductionHistory(
+                        calendar,
+                        order,
+                        batch,
+                        null);
+                }
+            }
+            public void Update(IComputingEvent e)
+            {
+                throw new NotImplementedException();
+            }
+        }
+        private class TestPpProduction : IProdplaceProduction
+        {
+            private readonly int id;
+            private readonly TestOsProduction os;
+            private readonly DowntimeOccasion recentDowntime;
+            public TestPpProduction(
+                int id,
+                TestOsProduction os,
+                DowntimeOccasion recentDowntime)
+            {
+                this.id = id;
+                this.os = os;
+                this.recentDowntime = recentDowntime;
+            }
+            public IMachine Machine
+            {
+                get
+                {
+                    return new Machine(
+                        operatorStationId: os.Machine.OperatorStationId,
+                        prodplaceId: id);
+                }
+            }
+
+            public IProductionHistory Recent
+            {
+                get
+                {
+                    return new ProductionHistory(
+                        os.Recent.RecentCalendar,
+                        os.Recent.RecentOrder,
+                        os.Recent.RecentBatch,
+                        recentDowntime);
+                }
+            }
+
+            void IProduction.Update(IComputingEvent e)
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }

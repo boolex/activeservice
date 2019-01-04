@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Linq;
-using Production.Test1.Oee;
 using System.Threading;
 using System.Collections.Generic;
-using Production.Test1.Oee.ProductionPeriod;
 using Production.Abstract;
 using Production.Abstract.Model;
 using OeeCalculation.DatabaseContext;
 using Production.Test1.MsSql;
 using OeeCalculation.TrackableDatabase;
+using OeeCalculation.Computing.Production;
+using OeeCalculation.Computing.ProductionPeriod;
+
 namespace Production.Test1
 {
     /// <summary>
@@ -45,7 +46,7 @@ namespace Production.Test1
             var db = new SoxxaTrackableDatabase(cs);
             db.Track();
 
-           // Thread.Sleep(10000);
+            // Thread.Sleep(10000);
             return;
             DateTime now = DateTime.Now;
             var shiftHistory = new List<Shift>();
@@ -56,6 +57,7 @@ namespace Production.Test1
             var orders = new List<Order>();
 
             var osProduction = new OperatorStationProduction(
+                id: 1,
                 shiftContext: shiftHistory,
                 ordersContext: new List<Order>
                 {
@@ -77,7 +79,8 @@ namespace Production.Test1
                         puStart:null,
                         amountPerUnit:1,
                         amountPerPulseStart:1,
-                        goalCycleTime:1),
+                        goalCycleTime:1,
+                        active:false),
                      new Order(
                         operatorStationId: 1,
                         id: 2,
@@ -95,13 +98,16 @@ namespace Production.Test1
                         puStart:null,
                         amountPerUnit:1,
                         amountPerPulseStart:1,
-                        goalCycleTime:1)
+                        goalCycleTime:1,
+                        active:true)
                 }
             );
+            /*
             osProduction.EndUnit(new PUTimeEnd(2, 4500, now.AddMinutes(-50)));
 
             osProduction.StartShift(new Shift(id: 1, start: now.AddMinutes(-30)));
             osProduction.StartOrderBatch(new OrderBatch(1, 9, now.AddMinutes(-15), null));
+             */
             var prodplaceProduction = osProduction.AddProdPlace(
                 new ProdPlace(1, 1, null),
                 downtimeContext: new List<DowntimeOccasion>()
@@ -109,7 +115,7 @@ namespace Production.Test1
                         new DowntimeOccasion(1,1,now.AddHours(-4).AddMinutes(-45),now.AddHours(-3), 2)
                     }
             );
-            prodplaceProduction.StartDowntime(new DowntimeOccasion(1, 2, now.AddMinutes(-2), null, 2));
+            //prodplaceProduction.StartDowntime(new DowntimeOccasion(1, 2, now.AddMinutes(-2), null, 2));
 
             var productionPeriod5Min = new SlidingProductionPeriod(back: TimeSpan.FromMinutes(5), prodPlace: prodplaceProduction);
             var productionPeriod100Min = new SlidingProductionPeriod(back: TimeSpan.FromMinutes(100), prodPlace: prodplaceProduction);
@@ -124,7 +130,7 @@ namespace Production.Test1
             var nowRange = new DateRange(null, n);
             for (var i = 0; i < 1000; i++)
             {
-                osProduction.EndUnit(new PUTimeEnd(1, 1, DateTime.Now));
+                // osProduction.EndUnit(new PUTimeEnd(1, 1, DateTime.Now));
 
                 Console.Clear();
                 Console.WriteLine("Active Shift");

@@ -18,7 +18,7 @@ namespace OeeCalculation.DatabaseContext
         {
             this.now = now;
             this.request = request;
-           // this.listener = listener;
+            // this.listener = listener;
         }
         private IEnumerable<OperatorStation> operatorStations;
         IEnumerable<OperatorStation> OperatorStations
@@ -33,7 +33,7 @@ namespace OeeCalculation.DatabaseContext
         {
             var now = DateTime.Now;
             var startOfDay = now - now.TimeOfDay;
-            
+
             //StartTrackingDatabaseEvents(now);
             LoadDatabaseContext(startOfDay);
             LoadHistoricalCalculations(startOfDay.AddDays(-30), startOfDay);
@@ -151,7 +151,8 @@ namespace OeeCalculation.DatabaseContext
                     puScrapped: puTimeScrapped.Where(x => x.OrderId == GetInt(r, "Order_Id")),
                     amountPerPulseStart: 1,
                     amountPerUnit: 1,
-                    goalCycleTime: 1));
+                    goalCycleTime: 1,
+                    active: false));
             var calendarHistory = Fetch(
                 set.Tables[TableOrder[Table.CalendarHistory]],
                 r => new CalendarHistory(
@@ -203,8 +204,8 @@ namespace OeeCalculation.DatabaseContext
         }
         public void Listen()
         {
-           // listenDowntimeOccasion();
-           // listenOrders();
+            // listenDowntimeOccasion();
+            // listenOrders();
             //listenCalendarHistory();
             //listenOrderBatch();
         }
@@ -282,6 +283,6 @@ namespace OeeCalculation.DatabaseContext
         //        });
         //}
 
-       
+
     }
 }

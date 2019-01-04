@@ -59,6 +59,10 @@
       <Project>{298366ec-7e91-455c-8e4c-7cc4ebfae19a}</Project>
       <Name>Production.Abstract</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OeeCalculation.Computing\OeeCalculation.Computing.csproj">
+      <Project>{087cc09d-ba1d-440f-ae5f-873de4557e49}</Project>
+      <Name>OeeCalculation.Computing</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OeeCalculation.DataMapper\OeeCalculation.DataMapper.csproj">
       <Project>{9440dc8a-f1dd-40b5-be03-539f217c0467}</Project>
       <Name>OeeCalculation.DataMapper</Name>

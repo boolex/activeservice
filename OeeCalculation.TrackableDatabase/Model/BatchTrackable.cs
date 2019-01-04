@@ -19,7 +19,7 @@ namespace OeeCalculation.TrackableDatabase.Model
             this.track = track;
             this.mask = mask;
         }
-        public BatchTrackable(INullMask mask, byte[] data, int pos): this(
+        public BatchTrackable(INullMask mask, byte[] data, int pos) : this(
             mask: mask,
             track: new TrackBinary(data, pos),
             id: SoxxaBitConverter.ToInt32(data, pos + 9),
@@ -36,5 +36,7 @@ namespace OeeCalculation.TrackableDatabase.Model
             get { return 25 + (mask[0] ? 0 : 8); }
         }
         public INullMask Nulls { get { return mask; } }
+
+        public IMachine Machine { get { return new Machine(orderId: OrderId); } }
     }
 }

@@ -42,8 +42,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ProductionEvents\ShiftStartedComputingEvent.cs" />
+    <Compile Include="Calculator\OrderBatchStatisticsCalculator.cs" />
+    <Compile Include="Calculator\OrderStatisticsCalculator.cs" />
+    <Compile Include="Calculator\OsProductionCalculator.cs" />
+    <Compile Include="Calculator\PpProductionPeriodCalculator.cs" />
+    <Compile Include="IComputingEventDataMapperFactory.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="ProductionEvents\ActiveDowntimeCompleted.cs" />
+    <Compile Include="ProductionEvents\ActiveOrderCompleted.cs" />
+    <Compile Include="ProductionEvents\DowntimeStarted.cs" />
+    <Compile Include="ProductionEvents\EntireBatchCompleted.cs" />
+    <Compile Include="ProductionEvents\EntireDowntimeCompleted.cs" />
+    <Compile Include="ProductionEvents\IComputingEvent.cs" />
+    <Compile Include="ProductionEvents\OrderStarted.cs" />
+    <Compile Include="ProductionEvents\ProductionDataMapper.cs" />
+    <Compile Include="ProductionEvents\ShiftCompleted.cs" />
+    <Compile Include="ProductionEvents\ShiftStarted.cs" />
+    <Compile Include="ProductionEvents\UnitProduced.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="ProductionEvents\UnitScrapped.cs" />
+    <Compile Include="ProductionEvents\UnitStarted.cs" />
+    <Compile Include="ProductionEvents\UnknownProductionEvent.cs" />
+    <Compile Include="ProductionEvents\UnknownProductionEventException.cs" />
+    <Compile Include="ProductionPeriod\ActiveOrderProductionPeriod.cs" />
+    <Compile Include="ProductionPeriod\ActiveShiftProductionPeriod.cs" />
+    <Compile Include="ProductionPeriod\SlidingProductionPeriod.cs" />
+    <Compile Include="Production\IProduction.cs" />
+    <Compile Include="Production\IProductionHistory.cs" />
+    <Compile Include="Production\OperatorStationProduction.cs" />
+    <Compile Include="Production\OrderProduction.cs" />
+    <Compile Include="Production\ProdplaceProduction.cs" />
+    <Compile Include="Production\SiteProduction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SiteChangeSet.cs" />
+    <Compile Include="Statistics\AmountStatistics.cs" />
+    <Compile Include="Statistics\LossStatistics.cs" />
+    <Compile Include="Statistics\OrderBatchProductionBaseAttributes.cs" />
+    <Compile Include="Statistics\OrderProductionTimeMetrics.cs" />
+    <Compile Include="Statistics\OsProductionStatistics.cs" />
+    <Compile Include="Statistics\OverallAmountStatistics.cs" />
+    <Compile Include="Statistics\ProductionBaseAttributes.cs" />
+    <Compile Include="Statistics\ProductionStatistics.cs" />
+    <Compile Include="Statistics\ProductionTime.cs" />
+    <Compile Include="Statistics\ProductionTimeMetrics.cs" />
+    <Compile Include="Storage\DynamicIntersectionStorage.cs" />
+    <Compile Include="Storage\DynamicStorage.cs" />
+    <Compile Include="Storage\Intersection.cs" />
+    <Compile Include="Storage\Intersections.cs" />
+    <Compile Include="Storage\ProducedUnitStorage.cs" />
+    <Compile Include="Storage\ProductionDowntime.cs" />
+    <Compile Include="Storage\ProductionDowntimeStorage.cs" />
+    <Compile Include="Storage\ProductionOrderBatchStorage.cs" />
+    <Compile Include="Storage\ProductionOrderDowntime.cs" />
+    <Compile Include="Storage\ShiftStorage.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OeeCalculation.Abstract\Production.Abstract.csproj">

@@ -34,5 +34,6 @@ namespace OeeCalculation.TrackableDatabase.Model
         public INullMask Nulls { get { return mask; } }
         public Track Track { get { return track; } }
         public int Size { get { return 29; } }
+        public IMachine Machine { get { return new Machine(orderId: OrderId); } }
     }
 }

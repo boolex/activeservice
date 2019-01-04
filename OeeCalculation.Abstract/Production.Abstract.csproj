@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeSetSource.cs" />
     <Compile Include="Computing\DateRange.cs" />
     <Compile Include="Computing\IDynamicStorageT.cs" />
     <Compile Include="Computing\ILossStatistics.cs" />
@@ -56,6 +57,8 @@
     <Compile Include="IDatabaseRecordSet.cs" />
     <Compile Include="IDataMapper.cs" />
     <Compile Include="IListener.cs" />
+    <Compile Include="ILogger.cs" />
+    <Compile Include="IMachine.cs" />
     <Compile Include="IProductionAttributeSource.cs" />
     <Compile Include="IProductionEvent.cs" />
     <Compile Include="IStartedProductionPeriod.cs" />
@@ -75,11 +78,10 @@
     <Compile Include="Model\PUTimeStart.cs" />
     <Compile Include="Model\Shift.cs" />
     <Compile Include="Model\Track.cs" />
+    <Compile Include="NullableLogger.cs" />
     <Compile Include="PeriodDuration.cs" />
     <Compile Include="ProductionAttribute.cs" />
     <Compile Include="ProductionAttributeOption.cs" />
-    <Compile Include="ProductionEvent\ShiftEnded.cs" />
-    <Compile Include="ProductionEvent\ShiftStarted.cs" />
     <Compile Include="ProductionTimeStatisticsFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

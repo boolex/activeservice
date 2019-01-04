@@ -54,36 +54,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Oee\Calc\Storage\DynamicIntersectionStorage.cs" />
-    <Compile Include="Oee\Calc\Storage\DynamicStorage.cs" />
-    <Compile Include="Oee\Calc\Storage\Intersection.cs" />
-    <Compile Include="Oee\Calc\Storage\Intersections.cs" />
-    <Compile Include="Oee\Calc\OrderBatchStatisticsCalculator.cs" />
-    <Compile Include="Oee\Calc\Storage\ProducedUnitStorage.cs" />
-    <Compile Include="Oee\ProductionPeriod\ActiveOrderProductionPeriod.cs" />
-    <Compile Include="Oee\ProductionPeriod\ActiveShiftProductionPeriod.cs" />
-    <Compile Include="Oee\ProductionPeriod\SlidingProductionPeriod.cs" />
-    <Compile Include="Oee\Statistics\OrderBatchProductionBaseAttributes.cs" />
-    <Compile Include="Oee\Calc\OrderStatisticsCalculator.cs" />
-    <Compile Include="Oee\Calc\OsProductionCalculator.cs" />
-    <Compile Include="Oee\Calc\PpProductionPeriodCalculator.cs" />
-    <Compile Include="Oee\Calc\Storage\ProductionDowntimeStorage.cs" />
-    <Compile Include="Oee\Calc\Storage\ProductionOrderBatchStorage.cs" />
-    <Compile Include="Oee\Calc\Storage\ProductionOrderDowntime.cs" />
-    <Compile Include="Oee\Calc\Storage\ShiftStorage.cs" />
-    <Compile Include="Oee\Model\ProductionDowntime.cs" />
-    <Compile Include="Oee\Production\OperatorStationProduction.cs" />
-    <Compile Include="Oee\Production\OrderProduction.cs" />
-    <Compile Include="Oee\Production\ProdplaceProduction.cs" />
-    <Compile Include="Oee\Statistics\AmountStatistics.cs" />
-    <Compile Include="Oee\Statistics\LossStatistics.cs" />
-    <Compile Include="Oee\Statistics\OrderProductionTimeMetrics.cs" />
-    <Compile Include="Oee\Statistics\OsProductionStatistics.cs" />
-    <Compile Include="Oee\Statistics\OverallAmountStatistics.cs" />
-    <Compile Include="Oee\Statistics\ProductionBaseAttributes.cs" />
-    <Compile Include="Oee\Statistics\ProductionStatistics.cs" />
-    <Compile Include="Oee\Statistics\ProductionTime.cs" />
-    <Compile Include="Oee\Statistics\ProductionTimeMetrics.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -97,6 +67,10 @@
     <ProjectReference Include="..\OeeCalculation.Abstract\Production.Abstract.csproj">
       <Project>{298366ec-7e91-455c-8e4c-7cc4ebfae19a}</Project>
       <Name>Production.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OeeCalculation.Computing\OeeCalculation.Computing.csproj">
+      <Project>{087cc09d-ba1d-440f-ae5f-873de4557e49}</Project>
+      <Name>OeeCalculation.Computing</Name>
     </ProjectReference>
     <ProjectReference Include="..\OeeCalculation.DatabaseContext\OeeCalculation.DatabaseContext.csproj">
       <Project>{8c32e96e-0df5-4b0a-9dae-1309daba208b}</Project>

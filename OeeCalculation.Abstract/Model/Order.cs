@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System;
 namespace Production.Abstract.Model
 {
@@ -16,6 +15,7 @@ namespace Production.Abstract.Model
         private float amountPerUnit;
         private float amountPerPulseStart;
         private float goalCycleTime;
+        private bool active;
         public Order() { }
         public Order(
             int operatorStationId,
@@ -28,7 +28,8 @@ namespace Production.Abstract.Model
             IEnumerable<PUTimeScrapped> puScrapped,
             float amountPerUnit,
             float amountPerPulseStart,
-            float goalCycleTime)
+            float goalCycleTime,
+            bool active)
         {
             this.operatorStationId = operatorStationId;
             this.id = id;
@@ -41,6 +42,7 @@ namespace Production.Abstract.Model
             this.amountPerUnit = amountPerUnit;
             this.amountPerPulseStart = amountPerPulseStart;
             this.goalCycleTime = goalCycleTime;
+            this.active = active;
         }
         public int OperatorStation_Id { get { return operatorStationId; } }
         public int Order_Id { get { return id; } }
@@ -53,6 +55,7 @@ namespace Production.Abstract.Model
         public float AmountPerUnit { get { return amountPerUnit; } }
         public float AmountPerPulseStart { get { return amountPerPulseStart; } }
         public float GoalCycleTime { get { return goalCycleTime; } }
+        public bool Active { get { return active; } }
         public DateTime? End
         {
             get { return EndTime; }

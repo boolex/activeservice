@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using OeeCalculation.TrackableDatabase.Model;
-using OeeCalculation.TrackableDatabase.Serialization;
+﻿using System.Linq;
+using System.Collections.Generic;
 using Production.Abstract;
-using System.Linq;
 using Production.Abstract.Model;
 namespace OeeCalculation.TrackableDatabase
 {
+    using OeeCalculation.TrackableDatabase.Model;
+    using OeeCalculation.TrackableDatabase.Serialization;
     public class DatabaseChangeSet : IDatabaseChangeSet
     {
         private readonly byte[] data;
@@ -18,8 +18,8 @@ namespace OeeCalculation.TrackableDatabase
         private readonly IDatabaseRecordSet deleted;
         public DatabaseChangeSet(
             IDatabaseRecordSet inserted,
-             IDatabaseRecordSet updated,
-              IDatabaseRecordSet deleted)
+            IDatabaseRecordSet updated,
+            IDatabaseRecordSet deleted)
         {
             this.inserted = inserted;
             this.updated = updated;
@@ -72,9 +72,9 @@ namespace OeeCalculation.TrackableDatabase
             stops = DbListSerializer<DowntimeOccasionTrackable>.From(data, position, out position);
             calendar = DbListSerializer<CalendarHistoryTrackable>.From(data, position, out position);
         }
-        public IDatabaseRecordSet Inserted { get { return inserted; } }
-        public IDatabaseRecordSet Updated { get { return updated; } }
-        public IDatabaseRecordSet Deleted { get { return deleted; } }
+        public IDatabaseRecordSet Inserted { get { return inserted ?? new DatabaseRecordSet(); } }
+        public IDatabaseRecordSet Updated { get { return updated ?? new DatabaseRecordSet(); } }
+        public IDatabaseRecordSet Deleted { get { return deleted ?? new DatabaseRecordSet(); } }
         public IEnumerable<ITrackable> Events
         {
             get

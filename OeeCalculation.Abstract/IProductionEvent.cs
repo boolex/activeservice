@@ -2,5 +2,6 @@
 {
     public interface IProductionEvent
     {
+        void Apply();
     }
 }

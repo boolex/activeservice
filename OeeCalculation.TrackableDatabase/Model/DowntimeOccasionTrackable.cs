@@ -46,5 +46,6 @@ namespace OeeCalculation.TrackableDatabase.Model
                 return 25 + (mask[0] ? 0 : 8) + (mask[1] ? 0 : 4);
             }
         }
+        public IMachine Machine { get { return new Machine(prodplaceId: ProdPlace_Id); } }
     }
 }

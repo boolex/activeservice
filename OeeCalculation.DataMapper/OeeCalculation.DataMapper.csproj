@@ -48,6 +48,10 @@
       <Project>{298366ec-7e91-455c-8e4c-7cc4ebfae19a}</Project>
       <Name>Production.Abstract</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OeeCalculation.Computing\OeeCalculation.Computing.csproj">
+      <Project>{087cc09d-ba1d-440f-ae5f-873de4557e49}</Project>
+      <Name>OeeCalculation.Computing</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OeeCalculation.TrackableDatabaseContext\OeeCalculation.TrackableDatabaseContext.csproj">
       <Project>{32b54e9c-e612-4ae0-b539-ca477dfa191c}</Project>
       <Name>OeeCalculation.TrackableDatabaseContext</Name>
